@@ -1,0 +1,19 @@
+[package]
+name = "trace-futures"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pin-project-lite = "0.2.14"
+lttng-ust = { version = "0.1.0", optional = true }
+futures = "0.3.30"
+
+[build-dependencies]
+lttng-ust-generate = { version = "0.1.0", optional = true, git = "https://github.com/skoudmar/lttng-ust-rs.git" }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
+
+[features]
+default = []
+lttng = ["lttng-ust", "lttng-ust-generate"]
